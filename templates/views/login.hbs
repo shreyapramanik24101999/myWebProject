@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transparent Login Form with Blur Background</title>
+	<!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+	<div class="contact-form">
+		<img alt="" class="avatar" src="image/avtar.png">
+		<h2>Login</h2>
+        <div class="button-box">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" onclick="student()">As student</button>
+            <button type="button" class="toggle-btn" onclick="admin()">As teacher</button>
+        </div>
+		<form action="/student_login" id="student-login" method="post">
+			<i class="fa fa-envelope fa-lg" style="color: white;"></i><input placeholder="Enter Email" type="email" id="user-email" name="uemail" required>
+			<i class="fa fa-key fa-lg" style="color: white;"></i><input placeholder="Enter Password" type="password" id="user-password" name="upassword" required>
+            <input type="submit" id="student-submit" value="Sign in">
+			<p>Do not have an account? <a href="/register">Register first.</a></p>
+		</form>
+        <form action="/admin_register" id="admin-login" method="post" style="visibility: hidden;">
+			
+             {{!-- <input placeholder="Enter Department" type="department" id="dept" name="dept" required> --}}
+            
+            <select class="option" name="dept" id="dept" type="department">
+                <option disabled="disabled" selected="selected"> Department</option>
+                <option>B.Tech</option>
+                <option>M.Tech</option>
+                <option>BCA</option>
+                <option>MCA</option>
+                <option>BBA</option>
+                <option>MBA</option>
+            </select>
+            
+       <div id="show" visibity="hidden">
+
+           <!-- <input placeholder="Enter Course" type="course" id="course" name="course" required> -->
+       
+        <select class="option" name="course" type="course" id="course" >
+            <option disabled="disabled" selected="selected">Course</option>
+            <option>Aerospace Engineering</option>
+            <option>Automobile Engineering</option>
+            <option>Biochemical Engineering</option>
+            <option>Chemical Engineering</option>
+            <option>Civil Engineering</option>
+            <option>Computer Science Engineering</option>
+            <option>Electronics and Communication Engineering</option>
+            <option>Elctrical Engineering</option>
+            <option>Information Technology</option>
+            <option>Mechanical Engineering</option>
+            <option>Telecommunication Engineering</option>
+        </select>
+
+        
+       </div>
+            
+    <input placeholder="Enter Year" type="year" id="year" name="year" required>
+    <input placeholder="Enter Password" type="password" id="user-password" name="apassword" required>
+            <input type="submit" id="admin-submit" value="Sign in">
+			
+		</form>
+	</div>
+
+    <script>
+        const x=document.getElementById("student-login");
+        const y=document.getElementById("admin-login");
+        const z=document.getElementById("btn");
+
+       
+
+const fun=()=>{
+ let d=document.getElementById("dept").value;
+let c=document.getElementById("show");
+if(d==="B.Tech"||d==="M.Tech")
+{
+    c.style.visibility="visible";
+
+}
+else{
+    c.style.visibility="hidden";
+
+}
+    }
+    setInterval(fun,100);
+
+        function admin()
+        {
+            y.style.left="10px";
+            z.style.left="150px";
+            x.style.visibility="hidden";
+            y.style.visibility="visible";
+        }
+        function student(){
+            let c=document.getElementById("show");
+            x.style.left="10px";
+            y.style.left="500px";
+            z.style.left="0px";
+            y.style.visibility="hidden";
+            x.style.visibility="visible";
+            c.style.visibility="hidden";
+        }
+        
+    </script>
+</body>
+</html>

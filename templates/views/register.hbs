@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/registration.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="registration">
+        <h1>
+            Registration Form
+        </h1>
+    </div>
+    <div class="main">
+    <form action="/register" method="post" id="user-register" enctype="multipart/form-data" >
+        <div id="name">
+            <h2 class="name">Name</h2>
+            <input type="text" class="fname" id="ufname" name="ufirstName"><br>
+            <label for="fname" class="fnamelb">First Name</label>
+            <input type="text" class="lname" id="ulname" name="ulastName">
+            <label for="lname" class="lnamelb">Last Name</label>
+        </div>
+        <label for="email"><h2 class="name">Email</h2></label>
+            <input type="email" class="email" id="uemail" name="uemail">
+
+            <h2 class="name">Phone</h2>
+            <input type="text" class="code" id="uphone" name="ucode" size="2">
+            <label for="phone" class="area-code">Area Code</label>
+            <input type="text" class="number" id="unum" name="uph" size="10">
+            <label for="num" class="Phone-number">Phone Number</label>
+
+            <div class="cen">
+                <h2 class="name">Gender</h2>
+            <label class="radio">
+                <input type="radio" class="radio-two" id="ugd" name="ugender" checked="checked"><span class="checkmark">Male</span>
+            </label>
+            <label class="radio">
+                <input type="radio" class="radio-two" id="ugd" name="ugender"><span class="checkmark">Female</span>
+            </label>
+            </div>
+
+            <label for="uadd"><h2 class="name">Address</h2></label>
+            <textarea name="uaddress" class="address" id="uadd" cols="60" rows="2" value="address"></textarea>
+
+            <div class="pascen">
+                <div>
+                    <label for="upas"><h2 class="name">Password</h2></label>
+                    <input type="password" class="password" id="upas" name="upas">
+                </div>
+
+                <div>
+                    <label for="ucpas"><h2 class="name cname">Conform Password</h2></label>
+                    <input type="password" class="cpassword" id="ucpas" name="ucpas">
+                </div>
+            </div>
+
+            <label for="udob"><h2 class="name">Date of birth</h2></label>
+            <input type="date" class="dob" id="udob" name="udob">
+            
+    <h2 class="name"> Department</h2>
+        <select class="option" name="dept" id="dept">
+        <option disabled="disabled" selected="selected">---choose option</option>
+        <option>B.Tech</option>
+        <option>M.Tech</option>
+        <option>BCA</option>
+        <option>MCA</option>
+        <option>BBA</option>
+        <option>MBA</option>
+    </select>
+
+    
+
+<div class="course" id="show" visibility="hidden">
+    <h2 class="name"> Course</h2>
+        <select class="option" name="course">
+        <option disabled="disabled" selected="selected">---choose option</option>
+        <option>Aerospace Engineering</option>
+        <option>Automobile Engineering</option>
+        <option>Biochemical Engineering</option>
+        <option>Chemical Engineering</option>
+        <option>Civil Engineering</option>
+        <option>Computer Science Engineering</option>
+        <option>Electronics and Communication Engineering</option>
+        <option>Elctrical Engineering</option>
+        <option>Information Technology</option>
+        <option>Mechanical Engineering</option>
+        <option>Telecommunication Engineering</option>
+    </select>
+</div>
+<label for="img"><h2 class="name">Upload Image</h2></label>
+<input type="file" class="img" id="img" name="img">
+
+    
+
+            <li>
+                <input id="ucheck" type="checkbox" value="test" required>
+                <label for="ucheck"><h2 class="check-text">I agreed all the terms and conditions</h2></label>
+            </li>
+
+            <input type="submit" id="ureg" value="Register">
+
+        </form>
+</div>
+<script>
+    const fun=()=>{
+const d=document.getElementById("dept").value;
+    const c=document.getElementById("show");
+if(d==="BBA"||d==="BCA"||d==="MBA"||d==="MCA")
+{
+    c.style.visibility="hidden";
+
+}
+else{
+    c.style.visibility="visible";
+
+}
+    }
+    setInterval(fun,1000);
+</script>
+    
+</body>
+</html>
