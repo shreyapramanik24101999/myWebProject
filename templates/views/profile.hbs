@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/profile.css">
+    <title>Profile</title>
+</head>
+<body>
+    <input type="hidden" id="list" name="list" value="{{list}}">
+     <input type="hidden" id="img" name="img" value="{{img}}">
+        <div class="whole">
+            <div class="up">
+                <div class="left">
+                    <p>Logged in name: {{fname}} {{lname}}</p>
+                </div>
+                <div class="right">
+                    <a href="/login">log out</a>
+                </div>
+            </div>
+            
+           
+            <div class="bottom">
+                <div class="left logo">
+                    <img src="image/LOGO1.jpg"/>
+                </div>
+                <div class="right">
+                    <p>Raypur Institute Management System </p>
+                </div>
+            </div>
+            
+        </div>
+        
+    </header>
+
+<div class="containter">
+    <h3 style="text-align: center; background-color: rgb(246, 245, 187);">Student Profile</h3>
+    <div class="total_info">
+        <div class="info">
+            {{!-- <p>First Name: {{fname}} <br> Last Name: {{lname}} <br> Email: {{email}} 
+            <br>Address: {{add}} <br> Date of Birth: {{dob}} <br>Roll No:  {{roll}}<br>Reg No: {{reg}}
+                <br>Phone no: {{ph}} <br>Department: {{dept}}<br>Course: {{cr}}
+                <br>Year: {{yr}}
+            </p> --}}
+            <table>
+                <tr>
+                    <td>First Name: </td>
+                    <td>{{fname}}</td>
+                </tr>
+                <tr>
+                    <td>Last Name: </td>
+                    <td> {{lname}}</td>
+                </tr>
+                 <tr>
+                    <td>Email: </td>
+                    <td>{{email}}</td>
+                </tr>
+                 <tr>
+                    <td>Address: </td>
+                    <td>{{add}}</td>
+                </tr>
+                 <tr>
+                    <td>Date of Birth: </td>
+                    <td>{{dob}}</td>
+                </tr>
+
+                <tr>
+                    <td>Roll No:</td>
+                    <td>{{roll}}</td>
+                </tr>
+
+                 <tr>
+                    <td>Reg no: </td>
+                    <td> {{reg}}</td>
+                </tr>
+
+                <tr>
+                    <td>Phone no:</td>
+                    <td>{{ph}}</td>
+                </tr>
+                <tr >
+                    <td>Department:</td>
+                    <td id="dept">{{dept}}</td>
+                </tr>
+                <tr id="course" style="visibility: hidden;">
+                    <td>Course: </td>
+                    <td>{{cr}}</td>
+                </tr>
+                <tr>
+                    <td>Year:</td>
+                    <td>{{yr}}</td>
+                </tr>
+                 
+            </table>
+        </div>
+        <div class="stu_img" id="stuimg">
+{{!-- <img src="image/principal1.jpg"/> --}}
+        </div>
+    </div>
+<div class="result" id="res">
+    {{!-- <h3 style="text-align: center;">Achieved Marks</h3>
+    <p>1st year: <br>2nd year: <br>3rd year: <br>4th year:
+    </p> --}}
+</div>
+
+</div>
+<script>
+   
+    const pic=JSON.parse(document.getElementById("img").value);
+    
+    let si=document.getElementById("stuimg");
+    
+    let image=document.createElement("img");
+    image.src=`user_image/${pic}`;
+    si.appendChild(image);
+    
+
+    
+const num=document.getElementById("list").value;
+const arr=JSON.parse(num);
+
+
+if(arr.length>0)
+{
+    let res=document.getElementById("res");
+    let heading=document.createElement(`h3`);
+    {{!-- heading.style.text-align= "center"; --}}
+    let count=1;
+    let text=document.createTextNode("Achieved Marks");
+    heading.appendChild(text);
+    res.appendChild(heading);
+
+   
+   
+    let newArr=arr.map((cval)=>{
+   
+    
+    let para=document.createElement(`p`);
+    if(count===1)
+    {
+        let text=document.createTextNode("First Year: "); 
+        para.appendChild(text);
+    }
+    else if(count===2)
+    {
+        let text=document.createTextNode("Second Year: "); 
+        para.appendChild(text);
+    }
+    else if(count===3)
+    {
+        let text=document.createTextNode("Third Year: "); 
+        para.appendChild(text);
+    }
+    else if(count===4)
+    {
+        let text=document.createTextNode("Fourth Year: "); 
+        para.appendChild(text);
+    }
+
+    let txt=document.createTextNode(`${cval.mr}`);
+    para.appendChild(txt);
+   count++;
+    res.appendChild(para);
+    });
+}
+
+const fun=()=>{
+const d=document.getElementById("dept").value;
+
+   const c=document.getElementById("course");
+if(d==="B.Tech"||d==="M.Tech")
+{
+    c.style.visibility="visible";
+
+}
+else{
+    c.style.visibility="hidden";
+   }
+}
+   setInterval(fun,100);
+
+</script>
+</body>
+</html>
+
+{{!-- visibility="visible" --}}
