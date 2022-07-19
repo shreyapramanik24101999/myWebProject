@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/admin.css">
+    <title>Admin</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="left">
+                <img src="image/LOGO1.jpg"/>
+            </div>
+            <div class="right">
+                <p>Raypur Institute Management System </p>
+            </div>
+        </div>
+    </header>
+<div class="contain">
+    <div class="corner">
+        <a href="/login">Log Out</a>
+    </div>
+<input type="hidden" name="dept" id="dept" value="{{department}}">
+<input type="hidden" name="course" id="course" value="{{course}}">
+<input type="hidden" name="year" id="year" value="{{year}}">
+<input type="hidden" name="list" id="list" value="{{list}}">
+    <table>
+        <caption>List</caption>
+        <thead id="head">
+        {{!-- `   <th>Roll No.</th>
+            <th>Reg. No.</th>
+            <th> Year </th> --}}
+        </thead>
+        <tbody id="body">
+
+        </tbody>
+        
+{{!--     
+        <tr>
+            <td>btech101</td>
+            <td>2022101</td>
+            <td>2</td>
+            <form action="#"  >
+            <td>81</td>
+            <td>80</td>
+            <td><input type="text"></td>
+        </form>
+        </tr>
+
+        <tr>
+            <td>btech102</td>
+            <td>2022102</td>
+            <td>2</td>
+            <form action="#"  >
+                <td>65</td>
+                <td>68</td>
+                <td><input type="text"></td>
+            </form>
+           
+        </tr>
+
+        <tr>
+            <td>btech103</td>
+            <td>2022103</td>
+            <td>2</td>
+            <form action="#"  >
+                <td>77</td>
+                <td>72</td>
+                <td><input type="text"></td>
+            </form>
+           
+        </tr> --}}
+
+    </table>
+
+</div>
+
+
+
+ <script src="js/marks.js"></script>   
+
+</body>
+</html>
